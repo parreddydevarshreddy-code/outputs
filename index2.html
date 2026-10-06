@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8f7f2" />
+  <meta name="description" content="A friendly neighbourhood help board to lend, ask, tutor, or share a ride." />
+  <title>Neighbourly — little things, lighter together</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Neighbourly home"><span class="brand-mark">n.</span><span>neighbourly</span></a>
+    <nav><a href="#how">How it works</a><a href="#board">Help board</a></nav>
+    <div class="access-pill"><span></span> Open to everyone</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> YOUR NEIGHBOURHOOD, A LITTLE CLOSER</div>
+        <h1>Little things.<br><em>Lighter</em> together.</h1>
+        <p class="hero-lede">Need a ladder for the afternoon? Looking for a maths tutor? Have an extra seat on your way to campus? Ask nearby. Someone might be glad to help.</p>
+        <a class="primary-link" href="#board">Explore the help board <span>↓</span></a>
+        <div class="hero-proof"><div class="avatar-stack"><i>↗</i><i>⌂</i><i>♡</i></div><span>Good neighbours make a stronger community.</span></div>
+      </div>
+      <div class="hero-art" aria-label="Friendly community help notes for lending, asking, tutoring, and rides">
+        <div class="art-sun">✳</div>
+        <div class="note note-one"><span class="note-icon">⌂</span><small>CAN LEND</small><b>Step ladder</b><i>Today · Block C</i></div>
+        <div class="note note-two"><span class="note-icon">✎</span><small>CAN HELP</small><b>Maths tutor</b><i>Year 8 · Weekends</i></div>
+        <div class="note note-three"><span class="note-icon">↗</span><small>OFFERING A RIDE</small><b>To the station</b><i>Tomorrow · 8:15 am</i></div>
+        <div class="art-heart">♡</div><div class="art-caption">A small ask can bring people together.</div>
+      </div>
+    </section>
+
+    <section class="how section" id="how">
+      <div><div class="eyebrow">SIMPLE BY DESIGN</div><h2>Give a little.<br>Ask when you need.</h2></div>
+      <div class="steps"><article><span>01</span><h3>Find your people</h3><p>Open the board and browse what neighbours nearby are offering or looking for. No account needed.</p></article><article><span>02</span><h3>Post a note</h3><p>Choose a category, add your name, and optionally include your block and room number.</p></article><article><span>03</span><h3>Make a connection</h3><p>Use the details shared on each note to find neighbours and lend a hand.</p></article></div>
+    </section>
+
+    <section class="board section" id="board">
+      <div class="board-head"><div><div class="eyebrow">THE NEIGHBOURHOOD BOARD</div><h2>How can we help?</h2><p>Little offers and everyday asks, shared close to home.</p></div><button class="outline-button" id="addProject">＋ Post a note</button></div>
+      <div class="filters" aria-label="Filter help posts"><button class="filter active" data-filter="All">All notes <span id="countAll">0</span></button><button class="filter" data-filter="Lend">Can lend</button><button class="filter" data-filter="Ask">Asking</button><button class="filter" data-filter="Tutor">Tutoring</button><button class="filter" data-filter="Ride">Rides</button></div>
+      <div class="auth-note" id="authNote"><span>✦</span><p><b>No account needed</b><br>Post as a guest. Your email and Google account details are never shown on the board.</p></div>
+      <div class="project-list" id="projectList"></div>
+      <div class="empty-state hidden" id="emptyState"><div>♡</div><b>No notes here yet</b><span>Be the first to offer help or ask your neighbours.</span></div>
+    </section>
+    <footer><a class="brand" href="#top"><span class="brand-mark">n.</span><span>neighbourly</span></a><span>Small acts make a neighbourhood.</span><a href="#top">Back to top ↑</a></footer>
+  </main>
+
+  <dialog id="projectDialog"><form id="projectForm" method="dialog"><button class="close" type="button" id="closeDialog" aria-label="Close">×</button><div class="eyebrow">A NOTE FOR YOUR NEIGHBOURS</div><h2>What’s on your mind?</h2><label>Your name<input required maxlength="50" name="author" placeholder="What neighbours can call you"></label><label>What do you need or offer?<input required maxlength="70" name="title" placeholder="e.g. Can lend a step ladder this weekend"></label><div class="form-row location-row"><label>Block <span>(optional)</span><input maxlength="30" name="block" placeholder="e.g. C"></label><label>Room number <span>(optional)</span><input maxlength="20" name="room" placeholder="e.g. 204"></label></div><label>Category<select name="type"><option value="Lend">Can lend</option><option value="Ask">Asking for help</option><option value="Tutor">Tutoring</option><option value="Ride">Ride</option></select></label><label>Any details? <span>(optional)</span><textarea name="description" maxlength="280" rows="3" placeholder="When, what subject, how many seats, or anything useful"></textarea></label><div class="form-error" id="formError"></div><button class="submit-button" type="submit">Post to the board <span>→</span></button><p class="privacy-note">Your name and any block or room number you add appear with your note. Leave them blank if you prefer. Don’t post phone numbers or other sensitive details.</p></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
